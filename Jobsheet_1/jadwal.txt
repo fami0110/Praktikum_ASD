@@ -1,0 +1,28 @@
+3
+1
+Manajemen Informatika
+LPR 8
+Senin
+07.00
+08.00
+1
+Matematika Lanjut
+LSI 3
+Selasa
+07.00
+09.00
+1
+Pemograman Berbasis Objek
+LPR 3
+Senin
+11.00
+14.00
+1
+2
+3
+Senin
+4
+Pemograman Berbasis Objek
+4
+anjay
+5
