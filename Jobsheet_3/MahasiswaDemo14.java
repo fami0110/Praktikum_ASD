@@ -30,5 +30,10 @@ public class MahasiswaDemo14 {
             System.out.println("---------------------------------");
         }
 
+        Mahasiswa14[] myArrayOfMahasiswa = new Mahasiswa14[3];
+        myArrayOfMahasiswa[0].nim = "244107060033";
+        myArrayOfMahasiswa[0].nama = "AGNES TITANIA KINANTI";
+        myArrayOfMahasiswa[0].kelas = "SIB-1E";
+        myArrayOfMahasiswa[0].ipk = (float) 3.75;
     }
 }
