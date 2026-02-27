@@ -4,7 +4,11 @@ public class DosenDemo14 {
     static Scanner sc = new Scanner(System.in);
     
     public static void main(String[] args) {      
-        Dosen14[] arrayOfDosen = new Dosen14[3];
+        System.out.print("Masukkan Jumlah Data: ");
+        int ln = sc.nextInt();
+        sc.nextLine();
+
+        Dosen14[] arrayOfDosen = new Dosen14[ln];
         String kode, nama, tmp;
         boolean jenisKelamin;
         int usia;
@@ -37,5 +41,11 @@ public class DosenDemo14 {
             System.out.println("Usia          : " + dosen.usia);
             System.out.println("---------------------------------");
         }
+
+        DataDosen14.dataSemuaDosen(arrayOfDosen);
+        DataDosen14.jumlahDosenPerJenisKelamin(arrayOfDosen);
+        DataDosen14.rerataUsiaDosenPerJenisKelamin(arrayOfDosen);
+        DataDosen14.infoDosenPalingTua(arrayOfDosen);
+        DataDosen14.infoDosenPalingMuda(arrayOfDosen);
     }
 }
