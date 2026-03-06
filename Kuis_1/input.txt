@@ -1,0 +1,42 @@
+10
+10
+1
+BK001
+Pemograman Jawa
+Dina Ayu Pratiwi
+1
+BK002
+Pengenalan Sistem Informasi
+Mahatma Gandhi
+1
+BK003
+Newton Laws in Horeg
+Thomas Alfa Edisound
+1
+BK004
+Cara Supaya Tidak Depresi
+Fajar Sadboy
+1
+BK005
+Buku-Bukuan
+Komeng
+2
+221001
+Masando Fami Ramadhan
+2
+221002
+Chika Sari Wibowo
+3
+221001
+BK001
+3
+221001
+BK002
+4
+221001
+BK001
+3
+221002
+BK001
+5
+6
