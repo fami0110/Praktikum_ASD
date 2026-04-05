@@ -12,16 +12,28 @@ public class Sorting14 {
 
 	void selectionSort() {
 		int min;
-		for (int i = 0; i < jumData-1; i++) {
-			min=i;
-			for (int j = i+1; j < jumData; j++) {
+		for (int i = 0; i < jumData - 1; i++) {
+			min = i;
+			for (int j = i + 1; j < jumData; j++) {
 				if (data[j] < data[min]) {
-					min=j;
+					min = j;
 				}
 			}
 			int tmp = data[i];
 			data[i] = data[min];
 			data[min] = tmp;
+		}
+	}
+
+	void insertionSort() {
+		for (int i = 1; i <= data.length - 1; i++) {
+			int temp = data[i];
+			int j = i - 1;
+			while (j >= 0 && data[j] > temp) {
+				data[j + 1] = data[j];
+				j--;
+			}
+			data[j + 1] = temp;
 		}
 	}
 
