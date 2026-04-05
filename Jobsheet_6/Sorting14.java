@@ -10,6 +10,21 @@ public class Sorting14 {
 		}
 	}
 
+	void selectionSort() {
+		int min;
+		for (int i = 0; i < jumData-1; i++) {
+			min=i;
+			for (int j = i+1; j < jumData; j++) {
+				if (data[j] < data[min]) {
+					min=j;
+				}
+			}
+			int tmp = data[i];
+			data[i] = data[min];
+			data[min] = tmp;
+		}
+	}
+
 	void bubbleSort() {
 		int temp = 0;
 		for (int i = 0; i < jumData - 1; i++) {
