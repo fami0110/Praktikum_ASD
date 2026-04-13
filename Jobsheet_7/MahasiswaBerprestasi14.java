@@ -1,6 +1,14 @@
 public class MahasiswaBerprestasi14 {
-	Mahasiswa14[] listMhs = new Mahasiswa14[5];
+	Mahasiswa14[] listMhs;
 	int idx;
+
+	MahasiswaBerprestasi14() {
+		this.listMhs = new Mahasiswa14[5];
+	}
+
+	MahasiswaBerprestasi14(int len) {
+		this.listMhs = new Mahasiswa14[len];
+	}
 
 	void tambah(Mahasiswa14 m) {
 		if (idx < listMhs.length) {
@@ -66,6 +74,21 @@ public class MahasiswaBerprestasi14 {
 			}
 		}
 		return posisi;
+	}
+
+	int findBinarySearch(double cari, int left, int right) {
+		int mid;
+		if (right >= left) {
+			mid = (left + right) / 2;
+			if (cari == listMhs[mid].ipk) {
+				return (mid);
+			} else if (listMhs[mid].ipk > cari) {
+				return findBinarySearch(cari, left, mid - 1);
+			} else {
+				return findBinarySearch(cari, mid + 1, right);
+			}
+		}
+		return -1;
 	}
 
 	void tampilPosisi(double x, int pos) {

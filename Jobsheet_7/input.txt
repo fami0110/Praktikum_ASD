@@ -1,0 +1,22 @@
+254000000001
+Rosie Wells
+SIB 1A
+3.35
+254000000002
+Isabelle Aguilar
+TI 1F
+3.74
+254000000003
+Julian Brewer
+TI 2B
+3.33
+254000000004
+Joseph Aguilar
+SIB 1B
+3.82
+254000000005
+Isabella Bryant
+SIB 1D
+3.49
+3.35
+3.35
