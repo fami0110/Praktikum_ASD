@@ -162,10 +162,9 @@ public class Perpustakaan {
         }
     }
 
-    int tamdahDataPeminjaman(Scanner sc) {
+    int tambahDataPeminjaman(Scanner sc) {
         String nim, kodeBuku;
         int lamaPinjam;
-        
         
         System.out.println();
 
@@ -232,5 +231,17 @@ public class Perpustakaan {
         System.out.println("Total Denda Keseluruhan       : " + total_denda);
         System.out.println("Jumlah Peminjaman Terlambat    : " + jml_terlambat);
         System.out.println("Jumlah Peminjaman Tepat Waktu : " + jml_tepatwaktu);
+    }
+
+    void tampilLaporanMahasiswa() {
+        System.out.println("\n=== LAPORAN PER MAHASISWA ===");
+        
+        LaporanMahasiswa laporan;
+        
+        for (Mahasiswa mhs : dataMahasiswa) {
+            laporan = new LaporanMahasiswa(mhs);
+            laporan.hitungLaporan(dataPeminjaman);
+            laporan.tampilLaporan();
+        }
     }
 }
