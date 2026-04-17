@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Perpustakaan {
@@ -44,24 +45,6 @@ public class Perpustakaan {
             sorted[j+1] = currentData;
         }
 
-        // Selection sorting (DESC)
-        // int currentMax;
-        // for (int i = 0; i < sorted.length-1; i++) {
-        //     currentMax = i;
-
-        //     // Search max value
-        //     for (int j = i+1; j < sorted.length; j++) {
-        //         if (sorted[j].denda > sorted[currentMax].denda) {
-        //             currentMax = j;
-        //         }
-        //     }
-
-        //     // Swap them
-        //     Peminjaman temp = sorted[i];
-        //     sorted[i] = sorted[currentMax];
-        //     sorted[currentMax] = temp;
-        // }
-
         System.out.println("\nDaftar Peminjaman:");
 
         for (Peminjaman pnj : sorted) {
@@ -87,5 +70,77 @@ public class Perpustakaan {
         } else {
             System.out.println("Data tidak ditemukan!");
         }
+    }
+
+    int tamdahDataPeminjaman(Scanner sc) {
+        String nim, kodeBuku;
+        int lamaPinjam;
+        
+        
+        System.out.println();
+
+        System.out.print("Masukkan NIM         : ");
+        nim = sc.nextLine();
+        System.out.print("Masukkan Kode Buku   : ");
+        kodeBuku = sc.nextLine();
+        System.out.print("Masukkan Lama Pinjam : ");
+        lamaPinjam = sc.nextInt();
+        sc.nextLine();
+
+        int i_mhs = -1;
+        int i_buku = -1;
+
+        for (int i = 0; i < dataMahasiswa.length; i++) {
+            if (nim.equalsIgnoreCase(dataMahasiswa[i].nim)) {
+                i_mhs = i;
+                break;
+            }
+        }
+
+        for (int i = 0; i < dataMahasiswa.length; i++) {
+            if (kodeBuku.equalsIgnoreCase(dataBuku[i].kodeBuku)) {
+                i_buku = i;
+                break;
+            }
+        }
+
+        if (i_mhs == -1 && i_buku == -1) {
+            System.out.println("[!] NIM dan Kode Buku TIDAK DITEMUKAN!");
+            return -1;
+        } else if (i_mhs == -1) {
+            System.out.println("[!] NIM TIDAK DITEMUKAN!");
+            return -1;
+        } else if (i_buku == -1) {
+            System.out.println("[!] Kode Buku TIDAK DITEMUKAN!");
+            return -1;
+        }
+
+        this.dataPeminjaman = Arrays.copyOf(this.dataPeminjaman, dataPeminjaman.length+1);
+        this.dataPeminjaman[this.dataPeminjaman.length-1] = new Peminjaman(
+            dataMahasiswa[i_mhs], dataBuku[i_buku], lamaPinjam
+        );
+
+        System.out.println("[+] Data Peminjaman BERHASIL DITAMBAHKAN!");
+
+        return dataPeminjaman.length;
+    }
+
+    void tampilStatistik() {
+        System.out.println("\n=== STATISTIK PEMINJAMAN ===");
+
+        int total_denda = 0, jml_terlambat = 0, jml_tepatwaktu = 0;
+
+        for (Peminjaman pnj : dataPeminjaman) {
+            if (pnj.terlambat > 0) {
+                jml_terlambat++;
+            } else {
+                jml_tepatwaktu++;
+            }
+            total_denda += pnj.denda;
+        }
+
+        System.out.println("Total Denda Keseluruhan       : " + total_denda);
+        System.out.println("Jumlah Peminjaman Terlambat    : " + jml_terlambat);
+        System.out.println("Jumlah Peminjaman Tepat Waktu : " + jml_tepatwaktu);
     }
 }

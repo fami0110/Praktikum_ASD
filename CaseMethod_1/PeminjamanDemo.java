@@ -9,6 +9,8 @@ public class PeminjamanDemo {
         System.out.println("3. Tampilkan Peminjaman");
         System.out.println("4. Urutkan Berdasarkan Denda");
         System.out.println("5. Cari Berdasarkan NIM");
+        System.out.println("6. Tambah Data Peminjaman");
+        System.out.println("7. Tampil Data Statistik");
         System.out.println("0. Keluar");
     }
 
@@ -66,6 +68,12 @@ public class PeminjamanDemo {
                     break;
                 case 5:
                     perpustakaan.cariBerdasarkanNIM(sc);
+                    break;
+                case 6:
+                    perpustakaan.tamdahDataPeminjaman(sc);
+                    break;
+                case 7:
+                    perpustakaan.tampilStatistik();
                     break;
                 default:
                     System.out.println("!Input tidak valid, coba lagi!");
