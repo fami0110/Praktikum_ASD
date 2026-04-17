@@ -45,6 +45,24 @@ public class Perpustakaan {
             sorted[j+1] = currentData;
         }
 
+        // Selection sorting (DESC)
+        // int currentMax;
+        // for (int i = 0; i < sorted.length-1; i++) {
+        //     currentMax = i;
+
+        //     // Search max value
+        //     for (int j = i+1; j < sorted.length; j++) {
+        //         if (sorted[j].denda > sorted[currentMax].denda) {
+        //             currentMax = j;
+        //         }
+        //     }
+
+        //     // Swap them
+        //     Peminjaman temp = sorted[i];
+        //     sorted[i] = sorted[currentMax];
+        //     sorted[currentMax] = temp;
+        // }
+
         System.out.println("\nDaftar Peminjaman:");
 
         for (Peminjaman pnj : sorted) {
@@ -52,21 +70,93 @@ public class Perpustakaan {
         }
     }
 
-    void cariBerdasarkanNIM(Scanner sc) {
-        // Linear Searching
-        System.out.print("\nMasukkan NIM: ");
-        String cari = sc.nextLine();
-        int find = -1;
-
-        for (int i = 0; i < dataPeminjaman.length; i++) {
-            if (cari.equalsIgnoreCase(dataPeminjaman[i].mhs.nim)) {
-                find = i;
-                break;
+    Peminjaman[] insertionSortPeminjamanASC() {
+        Peminjaman sorted[] = dataPeminjaman.clone();
+        
+        Peminjaman currentData;
+        int j;
+        for (int i = 1; i < sorted.length; i++) {
+            currentData = sorted[i];
+            j = i-1;
+            
+            while (j >= 0 && currentData.mhs.nim.compareTo(sorted[j].mhs.nim) < 0) {
+                sorted[j+1] = sorted[j];
+                --j;
             }
+
+            sorted[j+1] = currentData;
         }
 
+        return sorted;
+    }
+
+    int binarySearchPeminjaman(Peminjaman[] peminjaman, String cari, int left, int right) {
+		int mid;
+		if (right >= left) {
+			mid = (left + right) / 2;
+			if (cari.equalsIgnoreCase(peminjaman[mid].mhs.nim)) {
+				return mid;
+			} else if (peminjaman[mid].mhs.nim.compareTo(cari) > 0) {
+				return binarySearchPeminjaman(peminjaman, cari, left, mid - 1);
+			} else {
+				return binarySearchPeminjaman(peminjaman, cari, mid + 1, right);
+			}
+		}
+		return -1;
+	}
+
+    void tampilHasilBinaryPeminjaman(Peminjaman[] sorted_asc, int found_idx) {
+        // Cetak nilai yang ditemukan
+        sorted_asc[found_idx].tampilPeminjaman();
+
+        // Cetak nilai yang sama dengan cara ekspansi sisi kiri dan kanan
+        boolean left_found = true;
+        boolean right_found = true;
+        int offset = 1;
+
+        while (left_found || right_found) {
+            if (left_found) {
+                if ((found_idx-offset) < 0) {
+                    left_found = false;
+                } else if (!sorted_asc[found_idx-offset].mhs.nim.equalsIgnoreCase(sorted_asc[found_idx].mhs.nim)) {
+                    left_found = false;
+                } else {
+                    sorted_asc[found_idx-offset].tampilPeminjaman();
+                }
+            }
+            if (right_found) {
+                if ((found_idx+offset) >= sorted_asc.length) {
+                    right_found = false;
+                } else if (!sorted_asc[found_idx+offset].mhs.nim.equalsIgnoreCase(sorted_asc[found_idx].mhs.nim)) {
+                    right_found = false;
+                } else {
+                    sorted_asc[found_idx+offset].tampilPeminjaman();
+                }
+            }
+            offset++;
+        }
+    }
+
+    void cariBerdasarkanNIM(Scanner sc) {
+        System.out.print("\nMasukkan NIM: ");
+        String cari = sc.nextLine();
+
+        // Sequencial Searching
+        // int find = -1;
+
+        // for (int i = 0; i < dataPeminjaman.length; i++) {
+        //     if (cari.equalsIgnoreCase(dataPeminjaman[i].mhs.nim)) {
+        //         find = i;
+        //         break;
+        //     }
+        // }
+
+        // Binary search
+        Peminjaman[] sorted_asc = insertionSortPeminjamanASC();
+        int find = binarySearchPeminjaman(sorted_asc, cari, 0, sorted_asc.length-1);
+
         if (find != -1) {
-            dataPeminjaman[find].tampilPeminjaman();
+            tampilHasilBinaryPeminjaman(sorted_asc, find);
         } else {
             System.out.println("Data tidak ditemukan!");
         }
