@@ -70,7 +70,7 @@ public class StackTugasMahasiswa14 {
 	String konversiDesimalKeBiner(int nilai) {
 		StackKonversi14 stackBiner = new StackKonversi14();
 
-		while (nilai > 0) {
+		while (nilai != 0) {
 			int sisa = nilai % 2;
 			stackBiner.push(sisa);
 			nilai = nilai / 2;
