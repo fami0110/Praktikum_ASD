@@ -8,6 +8,7 @@ public class MahasiswaDemo14 {
         System.out.println("2. Menilai Tugas");
         System.out.println("3. Melihat Tugas Teratas");
         System.out.println("4. Melihat Daftar Tugas");
+        System.out.println("5. Melihat Tugas Pertama");
         System.out.println("0. Keluar");
         System.out.print("Pilih: ");
     }
@@ -51,9 +52,17 @@ public class MahasiswaDemo14 {
     }
 
     static void lihatDaftarTugas(StackTugasMahasiswa14 stack) {
-        System.out.println("Daftar Semua Tugas");
+        System.out.println("Daftar Semua Tugas:");
         stack.print();
     }
+
+	static void lihatTugasPertama(StackTugasMahasiswa14 stack) {
+		Mahasiswa14 lihat = stack.bottom();
+
+        if (lihat != null) {
+            System.out.printf("Tugas pertama dikumpulkan oleh %s\n", lihat.nama);
+        }
+	}
 
     public static void main(String[] args) {
         StackTugasMahasiswa14 stack = new StackTugasMahasiswa14(5);
@@ -78,6 +87,9 @@ public class MahasiswaDemo14 {
                     break;
                 case 4:
                     lihatDaftarTugas(stack);
+                    break;
+                case 5:
+                    lihatTugasPertama(stack);
                     break;
                 case 0:
                     System.out.println("Keluar...");

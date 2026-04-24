@@ -47,6 +47,15 @@ public class StackTugasMahasiswa14 {
         return this.stack[this.top];
     }
 
+	Mahasiswa14 bottom() {
+		 if (this.isEmpty()) {
+            System.out.println("STACK KOSONG WOIII. GAADA TUGAS YANG DIKUMPULIN!!");
+            return null;
+        }
+		
+		return this.stack[0];
+	}
+
     void print() {
         for (int i = this.top; i >= 0; i--) {
             System.out.printf(
