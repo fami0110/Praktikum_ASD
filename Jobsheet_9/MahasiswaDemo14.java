@@ -42,6 +42,10 @@ public class MahasiswaDemo14 {
         dinilai.tugasDinilai(nilai);
 
         System.out.printf("Nilai tugas %s adalah %d\n", dinilai.nama, nilai);
+		
+		String biner = stack.konversiDesimalKeBiner(nilai);
+		
+        System.out.printf("Nilai biner tugas: %s\n", biner);
     }
 
     static void lihatTugasPalingAtas(StackTugasMahasiswa14 stack) {

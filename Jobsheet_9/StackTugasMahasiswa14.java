@@ -52,7 +52,7 @@ public class StackTugasMahasiswa14 {
             System.out.println("STACK KOSONG WOIII. GAADA TUGAS YANG DIKUMPULIN!!");
             return null;
         }
-		
+
 		return this.stack[0];
 	}
 
@@ -66,4 +66,20 @@ public class StackTugasMahasiswa14 {
             );
         }
     }
+
+	String konversiDesimalKeBiner(int nilai) {
+		StackKonversi14 stackBiner = new StackKonversi14();
+
+		while (nilai > 0) {
+			int sisa = nilai % 2;
+			stackBiner.push(sisa);
+			nilai = nilai / 2;
+		}
+
+		String hasilBiner = "";
+		while (!stackBiner.isEmpty()) {
+			hasilBiner += stackBiner.pop();
+		}
+		return hasilBiner;
+	}
 }
