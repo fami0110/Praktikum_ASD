@@ -48,7 +48,7 @@ public class StackTugasMahasiswa14 {
     }
 
     void print() {
-        for (int i = 0; i <= this.top; i++) {
+        for (int i = this.top; i >= 0; i--) {
             System.out.printf(
                 "nama: %s | nim: %s | kelas: %s\n", 
                 this.stack[i].nama,
