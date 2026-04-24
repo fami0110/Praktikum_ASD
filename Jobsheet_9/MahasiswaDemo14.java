@@ -9,6 +9,7 @@ public class MahasiswaDemo14 {
         System.out.println("3. Melihat Tugas Teratas");
         System.out.println("4. Melihat Daftar Tugas");
         System.out.println("5. Melihat Tugas Pertama");
+        System.out.println("6. Hitung Banyak Tugas Saat ini");
         System.out.println("0. Keluar");
         System.out.print("Pilih: ");
     }
@@ -64,6 +65,10 @@ public class MahasiswaDemo14 {
         }
 	}
 
+	static void hitungBanyakTugas(StackTugasMahasiswa14 stack) {
+		System.out.printf("Banyak tugas yang sudah dikumpulkan: %d\n", stack.top+1);
+	}
+
     public static void main(String[] args) {
         StackTugasMahasiswa14 stack = new StackTugasMahasiswa14(5);
         Scanner sc = new Scanner(System.in);
@@ -90,6 +95,9 @@ public class MahasiswaDemo14 {
                     break;
                 case 5:
                     lihatTugasPertama(stack);
+                    break;
+                case 6:
+                    hitungBanyakTugas(stack);
                     break;
                 case 0:
                     System.out.println("Keluar...");
