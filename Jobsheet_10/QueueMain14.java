@@ -61,5 +61,7 @@ public class QueueMain14 {
 					break;
 			}
 		} while (pilih != 0);
+
+		sc.close();
 	}
 }
