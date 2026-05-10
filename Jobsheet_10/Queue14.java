@@ -22,8 +22,7 @@ public class Queue14 {
 
 	void enqueue(int dt) {
 		if (isFull()) {
-			System.out.println("Queue sudah penuh!");
-			return;
+			throw new IllegalStateException("Queue Overflow: Tidak dapat menambah data karena queue sudah penuh!");
 		}
 
 		if (isEmpty()) {
@@ -38,8 +37,7 @@ public class Queue14 {
 
 	int dequeue() {
 		if (isEmpty()) {
-			System.out.println("Queue masih kosong!");
-			return 0;
+			throw new IllegalStateException("Queue Underflow: Tidak dapat menghapus data karena queue kosong!");
 		}
 
 		int dt = this.data[this.front];
