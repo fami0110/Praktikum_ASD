@@ -44,7 +44,7 @@ public class AntrianLayanan14 {
 		this.front = (this.front + 1) % this.max;
 		this.size--;
 
-		return mhs;
+		return  mhs;
 	}
 
 	public void lihatTerdepan() {

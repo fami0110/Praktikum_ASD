@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 public class SingleLinkedList14 {
 	NodeMahasiswa14 head;
 	NodeMahasiswa14 tail;

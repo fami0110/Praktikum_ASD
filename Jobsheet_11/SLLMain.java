@@ -48,5 +48,7 @@ public class SLLMain {
 		sll.print();
 		sll.removeAt(0);
 		sll.print();
+		
+		sc.close();
 	}
 }
