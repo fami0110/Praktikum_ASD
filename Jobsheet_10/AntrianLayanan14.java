@@ -56,6 +56,15 @@ public class AntrianLayanan14 {
 		}
 	}
 
+	public void lihatAkhir() {
+		if (isEmpty()) {
+			System.out.println("Antrian kosong!");
+		} else {
+			System.out.println("Mahasiswa terakhir: ");
+			this.data[this.rear].tampilkanData();
+		}
+	}
+
 	public void tampilkanSemua() {
 		int idx;
 
