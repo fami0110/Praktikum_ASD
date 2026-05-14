@@ -75,6 +75,20 @@ public class DoubleLinkedList14 {
 		}
 	}
 
+	void printReverse() {
+		if (isEmpty()) {
+			System.out.println("Linked List masih kosong!");
+			return;
+		}
+
+		Node14 current = this.tail;
+
+		while (current != null) {
+			current.data.tampil();
+			current = current.prev;
+		}
+	}
+
 	void add(Mahasiswa14 data, int index) {
 		return;
 	}
