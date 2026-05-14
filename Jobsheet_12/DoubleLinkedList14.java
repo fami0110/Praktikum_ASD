@@ -89,15 +89,35 @@ public class DoubleLinkedList14 {
 		}
 	}
 
-	void add(Mahasiswa14 data, int index) {
-		return;
-	}
-
 	void removeFirst() {
-		return;
+		if (isEmpty()) {
+			System.out.println("Linked List kosong.");
+			return;
+		}
+
+		if (head == tail) {
+			head = tail = null;
+		} else {
+			head = head.next;
+			head.prev = null;
+		}
 	}
 
 	void removeLast() {
+		if (isEmpty()) {
+			System.out.println("Linked List kosong.");
+			return;
+		}
+
+		if (head == tail) {
+			head = tail = null;
+		} else {
+			tail = tail.prev;
+			tail.next = null;
+		}
+	}
+
+	void add(Mahasiswa14 data, int index) {
 		return;
 	}
 
