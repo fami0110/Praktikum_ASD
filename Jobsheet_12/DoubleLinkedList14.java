@@ -95,12 +95,19 @@ public class DoubleLinkedList14 {
 			return;
 		}
 
+		Node14 tmp = this.head;
+
 		if (head == tail) {
 			head = tail = null;
 		} else {
 			head = head.next;
 			head.prev = null;
 		}
+
+		System.out.println("Data dihapus:");
+		tmp.data.tampil();
+
+		tmp = null;
 	}
 
 	void removeLast() {
@@ -109,12 +116,19 @@ public class DoubleLinkedList14 {
 			return;
 		}
 
+		Node14 tmp = this.tail;
+
 		if (head == tail) {
 			head = tail = null;
 		} else {
 			tail = tail.prev;
 			tail.next = null;
 		}
+
+		System.out.println("Data dihapus:");
+		tmp.data.tampil();
+		
+		tmp = null;
 	}
 
 	void add(Mahasiswa14 data, int index) {
