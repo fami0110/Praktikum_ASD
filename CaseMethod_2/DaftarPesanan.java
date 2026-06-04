@@ -62,7 +62,6 @@ public class DaftarPesanan {
 		System.out.println("===========================================");
 		System.out.printf("%-15s %-20s %s\n", "Kode Pesanan", "Nama Pesanan", "Harga");
 
-		int pendapatan = 0;
 		NodePesanan pointer = this.head;
 		
 		while (pointer != null) {
@@ -71,13 +70,56 @@ public class DaftarPesanan {
 				pointer.data.namaPesanan, 
 				String.format("Rp %,d", pointer.data.harga)
 			);
+			pointer	= pointer.next;
+		}
+	}
+
+	void hitungPendapatan() {
+		int pendapatan = 0;
+		NodePesanan pointer = this.head;
+		
+		while (pointer != null) {
 			pendapatan += pointer.data.harga;
 			pointer	= pointer.next;
 		}
 
-		System.out.printf("%36s %s\n", 
-			"Total Pendapatan:   ", 
-			String.format("Rp %,d", pendapatan)
-		);
+		System.out.printf("Total Pendapatan: Rp %,d\n", pendapatan);
+	}
+
+	void hapusPesanan(int kodePesanan) {
+		if (kosong()) {
+			System.out.println("\n[-] Antrian kosong!");
+			return;
+		}
+
+		NodePesanan pointer = this.head;
+
+		while (pointer != null) {
+			if (pointer.data.kodePesanan == kodePesanan) break;
+			pointer = pointer.next;
+		}
+
+		if (pointer == null) {
+			System.out.println("\n[!] Kode pesanan tidak ditemukan");
+			return;
+		}
+		
+		if (pointer == this.head && pointer == this.tail) {
+			this.head = null;
+			this.tail = null;
+		} else if (pointer == this.head) {
+			this.head = pointer.next;
+			this.head.prev = null;
+		} else if (pointer == this.tail) { // Ini yang akan dijalankan
+			this.tail = this.tail.prev;
+			this.tail.next = null;
+		} else {
+			pointer.prev.next = pointer.next;
+			pointer.next.prev = pointer.prev;
+			pointer.next = null;
+			pointer.prev = null;
+		}
+		
+		System.out.printf("\n[-] Pesanan %d berhasil dihapus!\n", pointer.data.kodePesanan);
 	}
 }

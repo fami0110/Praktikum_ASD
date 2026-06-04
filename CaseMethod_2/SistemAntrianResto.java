@@ -9,6 +9,10 @@ public class SistemAntrianResto {
 		System.out.println("2. Cetak Antrian");
 		System.out.println("3. Hapus Antrian dan Pesan");
 		System.out.println("4. Laporan Pesanan");
+		System.out.println("5. Hitung Total Pendapatan");
+		System.out.println("6. Hapus Pesanan");
+		System.out.println("7. Cari Pembeli");
+		System.out.println("8. Sorting Antrian");
 		System.out.println("0. Keluar");
 		System.out.print("> ");
 	}
@@ -42,6 +46,9 @@ public class SistemAntrianResto {
 					break;
 				case 3:
 					Pembeli pembeli = A.hapusAntrean();
+					
+					if (pembeli == null) break;
+
 					System.out.printf("\n[>] Melayani %s...\n", pembeli.namaPembeli);
 
 					System.out.print("Kode Pesanan : ");
@@ -56,6 +63,25 @@ public class SistemAntrianResto {
 					break;
 				case 4:
 					P.laporanPesanan();
+					break;
+				case 5:
+					P.hitungPendapatan();
+					break;
+				case 6:
+					System.out.print("Masukkan kode pesanan: ");
+					int kode = sc.nextInt(); sc.nextLine();
+
+					P.hapusPesanan(kode);
+					break;
+				case 7:
+					System.out.print("Nama pembeli: ");
+					String nama =  sc.nextLine();
+
+					A.cariPembeli(nama);
+					break;
+				case 8:
+					System.out.println("[#] Menyorting antrian berdasarkan nama pembeli...");
+					A.sortAntrian();
 					break;
 				case 0:
 					System.out.println("[#] Keluar...");
