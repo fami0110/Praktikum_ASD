@@ -35,6 +35,20 @@ public class BinaryTree14 {
 		}
 	}
 
+	public Node14 addRekursif(Mahasiswa14 mahasiswa, Node14 current) {
+		if (current == null) {
+			return new Node14(mahasiswa);
+		}
+
+		if (mahasiswa.ipk < current.mahasiswa.ipk) {
+			current.left = addRekursif(mahasiswa, current.left);
+		} else {
+			current.right = addRekursif(mahasiswa, current.right);
+		}
+
+		return current;
+	}
+
 	public boolean find(double ipk) {
 		boolean result = false;
 		Node14 current = root;

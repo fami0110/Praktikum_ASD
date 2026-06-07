@@ -5,7 +5,7 @@ public class BinaryTreeMain14 {
 		bst.add(new Mahasiswa14("244160121", "Ali", "A", 3.57));
 		bst.add(new Mahasiswa14("244160221", "Badar", "B", 3.85));
 		bst.add(new Mahasiswa14("244160185", "Candra", "C", 3.21));
-		bst.add(new Mahasiswa14("244160220", "Dewi", "B", 3.54));
+		bst.addRekursif(new Mahasiswa14("244160220", "Dewi", "B", 3.54), bst.root);
 
 		System.out.println("\nDaftar semua mahasiswa (in oder traversal) :");
 		bst.traverseInOrder(bst.root);
