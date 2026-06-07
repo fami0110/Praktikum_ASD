@@ -43,5 +43,8 @@ public class BinaryTreeMain14 {
 		System.out.println("\nMahasiswa dengan IPK paling besar:");
 		Mahasiswa14 ipkMax = bst.cariMaxIPK();
 		ipkMax.tampilInformasi();
+
+		System.out.println("\nTampilkan mahasiswa dengan ipk diatas 3.50");
+		bst.tampilMahasiswaIPKdiAtas(3.50, bst.root);
 	}
 }

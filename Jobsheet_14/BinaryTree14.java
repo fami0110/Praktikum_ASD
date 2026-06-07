@@ -95,6 +95,17 @@ public class BinaryTree14 {
 		return current.mahasiswa;
 	}
 
+	public void tampilMahasiswaIPKdiAtas(double ipkBatas, Node14 node) {
+		if (node != null) {
+			tampilMahasiswaIPKdiAtas(ipkBatas, node.left);
+
+			if (node.mahasiswa.ipk > ipkBatas)
+				node.mahasiswa.tampilInformasi();
+
+			tampilMahasiswaIPKdiAtas(ipkBatas, node.right);
+		}
+	}
+
 	public void traversePreOrder(Node14 node) {
 		if (node != null) {
 			node.mahasiswa.tampilInformasi();
