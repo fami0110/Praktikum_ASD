@@ -65,6 +65,36 @@ public class BinaryTree14 {
 		return result;
 	}
 
+	public Mahasiswa14 cariMinIPK() {
+		if (isEmpty()) {
+			System.err.println("Tree kosong!");
+			return null;
+		}
+		
+		Node14 current = this.root;
+		
+		while (current.left != null) {
+			current = current.left;
+		}
+		
+		return current.mahasiswa;
+	}
+
+	public Mahasiswa14 cariMaxIPK() {
+		if (isEmpty()) {
+			System.err.println("Tree kosong!");
+			return null;
+		}
+		
+		Node14 current = this.root;
+		
+		while (current.right != null) {
+			current = current.right;
+		}
+		
+		return current.mahasiswa;
+	}
+
 	public void traversePreOrder(Node14 node) {
 		if (node != null) {
 			node.mahasiswa.tampilInformasi();
